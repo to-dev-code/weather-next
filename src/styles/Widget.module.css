@@ -1,0 +1,176 @@
+.container {
+  display: grid;
+  width: 800px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 46px;
+  color: #000;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 52% 48%;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.sky {
+  position: relative;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.cluster {
+  position: absolute;
+  top: -40px;
+  left: -16px;
+}
+
+.sky *:not(.raindrops) {
+  box-shadow: 11px 12px 30px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sun {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-color: #ee861e;
+  border-radius: 20rem;
+  top: -40px;
+  z-index: 1;
+  animation: slidein 700ms;
+}
+
+.cloud {
+  width: 300px;
+  height: 100px;
+  background: #f2f9fe;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  position: absolute;
+  top: 100px;
+  left: 95px;
+  z-index: 2;
+  animation: slidein 700ms;
+}
+
+.cloud:after,
+.cloud:before {
+  content: "";
+  position: absolute;
+  background: #f2f9fe;
+}
+
+.cloud:after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+
+.cloud:before {
+  width: 140px;
+  height: 140px;
+  top: -90px;
+  right: 50px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+}
+
+.raindrops {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  top: 84px;
+  left: 50%;
+  z-index: 3;
+  transform: translateX(-50%);
+  animation: raindrops 700ms;
+}
+
+.raindrops > * {
+  border-radius: 8px;
+  width: 10px;
+  height: 50px;
+  background-color: #004ff1;
+  transform: rotate(18deg);
+}
+
+.temperature {
+  position: relative;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.tempNumber {
+  display: flex;
+  position: absolute;
+  gap: 18px;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  justify-content: center;
+  font-size: 120px;
+  transform: translate(-50%, -50%);
+}
+
+.temperature .switch {
+  position: relative;
+  top: -21px;
+}
+
+.temperature .switch .button {
+  border: none;
+  cursor: pointer;
+  font-size: 40px;
+  background: none;
+  color: #000;
+  border-radius: 18px;
+  padding: 4px 10px;
+  margin: 0 2px;
+  transition: background-color 200ms;
+}
+
+.temperature .button.active {
+  background-color: #004ff1;
+  color: #fff;
+}
+
+.temperature .button:hover:not(.active) {
+  background-color: #2b2b2b25;
+  color: #000;
+}
+
+.status {
+  font-size: 30px;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.status table {
+  border-spacing: 24px 18px;
+  margin-top: 24px;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-500px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes raindrops {
+  from {
+    transform: translate(-50%, -500px);
+  }
+
+  to {
+    transform: translate(-50%, 0px);
+  }
+}
